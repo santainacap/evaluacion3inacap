@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+
+    <title>Listado de empresa</title>
+    <link type="text/css" rel="stylesheet" href="eva3inacap.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1 id="titulo">Gestión de datos Inacap</h1>
+      <h2 id="subtitulo">¿Para qué sirve ésta página?</h2>
+      <article id="articulo">
+        Esta página fue hecha con la función de hacer listas de empresas especificas.
+      </article>
+      <h3>
+      </h3>
+      <button id="boton" class="btn bnt-info" >Cambiar estilo</button>
+      <h4>
+      </h4>
+    </div>
+    <div class="container py-2">
+    <p class="lead">Ingresar datos de las empresas</p>
+    <form >
+      <input id="Software" type="text" placeholder="Ingresa Software" class="form-control my-2">
+      <input id="Empresa" type="text" placeholder="Ingresa Empresa" class="form-control my-2">
+      <input id="Usuario" type="text" placeholder="Ingresa Usuario" class="form-control my-2">
+      <button id="boton" type="reset" onclick="capturar();"  class="btn bnt-success">Ingresar datos</button>
+      <h6>
+      </h6>
+    </form>
+    </div>
+    <div class="container">
+      <table class="table" id="tabla">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Software-</th>
+            <th>Empresa-</th>
+            <th>Usuario</th>
+          </tr>
+        </thead>
+      </table>
+
+</div>
+    <script >
+      function capturar(){
+        console.log("capturado");
+        function Empresa(Software, Empresa, Usuario){
+          this.Software=Software;
+          this.Empresa=Empresa;
+          this.Usuario=Usuario;
+        }
+        var capturarSoftware=document.getElementById("Software").value;
+        console.log(capturarSoftware);
+        var capturarEmpresa=document.getElementById("Empresa").value;
+        console.log(capturarEmpresa);
+        var capturarUsuario=document.getElementById("Usuario").value;
+        console.log(capturarUsuario);
+        sujeto= new Empresa(capturarSoftware, capturarEmpresa, capturarUsuario);
+        agregar();
+      }
+      var basedatos=[];
+      function agregar(){
+        basedatos.push(sujeto)
+        console.log(basedatos);
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+sujeto.Software+'</td><td>'+sujeto.Empresa+'</td><td>'+sujeto.Usuario+'</td></tbody>';
+      };
+    </script>
+    <script>
+      var h1=document.getElementById("titulo");
+      console.log(h1.innerHTML);
+      h1.style.color = "black";
+      h1.style.background = "orange";
+      var h2=document.getElementById("subtitulo");
+      console.log(h2.innerHTML);
+      h2.style.color="black";
+      h2.style.background="orange";
+      var article=document.getElementById("articulo");
+      console.log(article.innerHTML);
+      article.style.color="black";
+      article.style.background="orange";
+        var boton = document.getElementById("boton");
+        boton.onclick = function() {
+
+          h1.style.color = "black";
+          h1.style.background = "cyan";
+
+          h2.style.color = "black";
+          h2.style.background = "cyan";
+          
+          article.style.color = "black";
+          article.style.background = "cyan";  
+     };
+  </script>
+<div class="pata">
+  <h1>©2022 Gestión de datos Inacap. Todos los derechos reservados</h1>
+  </div>
+  </body>
+</html>
